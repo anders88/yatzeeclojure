@@ -1,15 +1,15 @@
 # yatzeeclojure
 
-I'm an app. Or maybe I'm a library? I haven't decided yet. 
+Just playing around with the 
 
 The choice is up to you!
 
 ## Usage
 
-FIXME
+Nothing :)
 
 ## License
 
-Copyright © 2012 FIXME
+Copyright © 2012 Anders Karlsen
 
 Distributed under the Eclipse Public License, the same as Clojure.
