@@ -16,11 +16,14 @@
 )
 
 (with-test
-  (defn one-pair [dices]
-    (let [pairs (filter #(= (second %) 2) (dice-map dices))]
-    (if (empty? pairs) 0 (* 2 (reduce max (map #(first %) pairs))))
+  (defn several-equals [dices num-equals]
+    (let [pairs (filter #(>= (second %) num-equals) (dice-map dices))]
+    (if (empty? pairs) 0 (* num-equals (reduce max (map #(first %) pairs))))
     )) 
-    (is (= 0 (one-pair [6 2 3 4 5])) "No pairs")
-    (is (= 4 (one-pair [2 2 3 4 5])) "One pair")
-    (is (= 12 (one-pair [2 2 6 6 5])) "Highest pair")
+    (is (= 0 (several-equals [6 2 3 4 5] 2)) "No pairs")
+    (is (= 4 (several-equals [2 2 3 4 5] 2)) "One pair")
+    (is (= 12 (several-equals [2 2 6 6 5] 2)) "Highest pair")
+    (is (= 12 (several-equals [2 6 6 6 5] 2)) "Three equals is also a pair")
+    (is (= 24 (several-equals [2 6 6 6 6] 4)) "Four equals")
+    (is (= 0 (several-equals [2 6 6 6 5] 4)) "Not four equal")
 )
