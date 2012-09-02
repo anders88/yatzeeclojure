@@ -27,3 +27,10 @@
     (is (= 24 (several-equals [2 6 6 6 6] 4)) "Four equals")
     (is (= 0 (several-equals [2 6 6 6 5] 4)) "Not four equal")
 )
+
+(with-test 
+  (defn chance [dice]
+    (reduce + dice)
+    )
+  (is (= 20 (chance [2 3 6 6 3])))
+)
