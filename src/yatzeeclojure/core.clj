@@ -56,3 +56,13 @@
   (is (= 0 (high-straight [3 4 5 3 1])))
   (is (= 20 (high-straight [5 4 2 3 6])))
   )
+
+(with-test
+  (defn two-pairs [dices]
+    (let [pairs (filter #(>= (second %) 2) (dice-map dices))]
+       (if (= (count pairs) 2) (* 2 (reduce + (map #(first %) pairs))) 0)
+    ))
+  (is (= 0 (two-pairs [3 3 4 5 2])))
+  (is (= 14 (two-pairs [3 3 4 4 2])))
+  (is (= 14 (two-pairs [3 3 4 4 4])))
+  )
